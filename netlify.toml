@@ -1,0 +1,14 @@
+# Configuração global de build
+[build]
+  # Comando para construir o projeto inteiro (frontend e backend)
+  command = "npm run build"
+  # Diretório onde o frontend buildado estará
+  publish = "dist"
+  # Diretório onde as funções serverless (nosso backend) estarão
+  functions = "netlify/functions"
+
+# Redireciona todas as chamadas /api/* para nossa função serverless
+[redirects]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
